@@ -15,8 +15,7 @@ Shoes.app :title => "shoes-contrib browser", :height => 75, :width => 355 do
     end
 
     @example_box.change do |box|
-      #simply requiring something with a Shoes.app will run it!
-      require box.text
+      eval(File.open(box.text, "rb").read, TOPLEVEL_BINDING)
     end
   end
 end
